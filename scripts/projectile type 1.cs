@@ -10,6 +10,10 @@ public class projectiletype1 : MonoBehaviour
     private Rigidbody2D rb;
     public float force;
     [SerializeField]private float Destorytime = 5f;
+     public bool canAttack; // Allows player to attack nearby enemies
+    public GameObject nearbyPlayer; // Empty gameobject that will store nearby enemy upon collision (with trigger collider)
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,6 +35,14 @@ public class projectiletype1 : MonoBehaviour
     {
         
     }
+    //  void OnTriggerExit2D(Collider2D collider)
+    // {
+    //     if (collider.CompareTag("Player"))
+    //     {
+    //         canAttack = false; // Prevent attack
+    //         nearbyPlayer = null; // Removes enemy from nearbyEnemy reference when enemy exits collider
+    //     }
+    // }
     void SetDestoryTime()
     {
          Destroy(gameObject,Destorytime);

@@ -6,7 +6,8 @@ public class emenyShootin : MonoBehaviour
 {
    public GameObject junk;
    public Transform junkPos;
-    
+    public GameObject trash;
+   public Transform trashPos;
    
    private float timer;
    private GameObject player;
@@ -25,7 +26,7 @@ public class emenyShootin : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.transform.position);   
        Debug.Log(distance);//check range & fire
        
-        if(distance > 7)
+        if(distance > 7)// > far away from boss < Close to boss
         {
             if(timer > 2)
         {

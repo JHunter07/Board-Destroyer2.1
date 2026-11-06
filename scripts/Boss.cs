@@ -87,12 +87,12 @@ public class Boss : MonoBehaviour
         // Debug.Log("YERR");
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        //collision.gameObject.GetComponent<Rigidbody2D>().simulated=false;
-        Destroy(gameObject);
-        Speed = 0;
-    }
+    // void OnCollisionEnter2D(Collision2D collision)
+    // {
+    //     //collision.gameObject.GetComponent<Rigidbody2D>().simulated=false;
+    //     Destroy(gameObject);
+    //     Speed = 0;
+    // }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
