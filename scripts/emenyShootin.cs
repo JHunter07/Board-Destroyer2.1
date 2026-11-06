@@ -41,6 +41,7 @@ public class emenyShootin : MonoBehaviour
     void shoot()
     {
         Instantiate(junk,junkPos.position, Quaternion.identity);
+         Instantiate(trash,trashPos.position, Quaternion.identity);
     }
     
 }

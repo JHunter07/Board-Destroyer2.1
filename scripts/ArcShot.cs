@@ -30,7 +30,7 @@ public class ArcShot : MonoBehaviour
     {
         rb = GetComponent <Rigidbody2D> ();
 
-        // SetDestoryTime();
+        SetDestoryTime();
 
         SetRBStats();
 
@@ -43,7 +43,7 @@ public class ArcShot : MonoBehaviour
 
 
         Vector3 direction = player.transform.position -transform.position;
-        rb.linearVelocity = new Vector2 ( direction.x , direction.y).normalized * force;
+        rb.linearVelocity = new Vector2 ( direction.x  +50 , direction.y+ 100).normalized * force;
 
         float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0,0,rot );
@@ -74,10 +74,10 @@ private void InitializeBulletStats()
     {
         rb.linearVelocity = transform.right * pyhsicsBulletSpeed;
     }
-    // private void SetDestoryTime()
-    // {
-    //     Destroy(gameObject,Destorytime);
-    // }
+    private void SetDestoryTime()
+    {
+        Destroy(gameObject,Destorytime);
+    }
     private void SetRBStats()
     {
         if(bulletType == BulletType.Normal)
@@ -92,25 +92,8 @@ private void InitializeBulletStats()
     // Update is called once per frame
     void Update()
    {
-        timer += Time.deltaTime;
-
-        float distance = Vector2.Distance(transform.position, player.transform.position);   
-       Debug.Log(distance);//check range & fire
-       
-        if(distance > 7)// > far away from boss < Close to boss
-        {
-            if(timer > 2)
-        {
-            timer = 0;
-            shoot();
-        }
-
-        }
-
+     
         
     }
-    void shoot()
-    {
-        Instantiate(trash,trashPos.position, Quaternion.identity);
-    }
+   
 }
